@@ -1,0 +1,36 @@
+{
+  "2d2de4cd-7017-48e3-a083-f1e2a0e8aef3": {
+    "title": "dfghjkl",
+    "description": "dgfhvbjkn",
+    "deadline": "2025-12-01T18:30:00+00:00",
+    "created_by": "691f0ebd4f16123474815581",
+    "status": "active",
+    "files": [
+      {
+        "filename": "SML_Lab09_SVM_1.pdf",
+        "file_path": "storage\\assignments\\2d2de4cd-7017-48e3-a083-f1e2a0e8aef3\\files\\00e292f4-d706-43d1-92e2-6aa4569dbbbc_SML_Lab09_SVM_1.pdf",
+        "file_size": 104417,
+        "content_type": "application/pdf"
+      }
+    ],
+    "id": "2d2de4cd-7017-48e3-a083-f1e2a0e8aef3",
+    "created_at": "2025-11-20T22:53:51.279330"
+  },
+  "e8414f02-c0d4-43e7-870f-109482d29fa2": {
+    "title": "fghjkl",
+    "description": "ghjkjli;l",
+    "deadline": "2025-12-01T18:30:00+00:00",
+    "created_by": "691f0ebd4f16123474815581",
+    "status": "active",
+    "files": [
+      {
+        "filename": "Lab06_LogisticRegression_Set_A.pdf",
+        "file_path": "storage\\assignments\\e8414f02-c0d4-43e7-870f-109482d29fa2\\files\\b834b8bd-205b-4a33-abbd-7078860df745_Lab06_LogisticRegression_Set_A.pdf",
+        "file_size": 215751,
+        "content_type": "application/pdf"
+      }
+    ],
+    "id": "e8414f02-c0d4-43e7-870f-109482d29fa2",
+    "created_at": "2025-11-20T23:14:28.787730+00:00"
+  }
+}

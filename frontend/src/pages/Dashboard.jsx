@@ -9,7 +9,7 @@ const Dashboard = () => {
     <div>
       {/* Email Verification Banner for Students */}
       {isStudent && !user?.is_email_verified && (
-        <div className="mb-6 bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-md">
+        <div className="mb-6 bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-xl">
           <div className="flex items-center justify-between">
             <div className="flex items-center">
               <svg
@@ -36,7 +36,7 @@ const Dashboard = () => {
             </div>
             <Link
               to={`/verify-email?email=${encodeURIComponent(user?.email || '')}`}
-              className="ml-4 bg-yellow-400 hover:bg-yellow-500 text-yellow-900 px-4 py-2 rounded-md text-sm font-medium whitespace-nowrap"
+              className="ml-4 bg-primary text-white px-6 py-2.5 rounded-xl text-sm font-medium whitespace-nowrap hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
             >
               Verify Email
             </Link>
@@ -59,12 +59,12 @@ const Dashboard = () => {
           <>
             <Link
               to="/notices"
-              className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border border-gray-200"
+              className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-gray-200 hover:border-primary/20 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
             >
               <div className="flex items-center space-x-4">
-                <div className="bg-indigo-100 p-3 rounded-lg">
+                <div className="bg-primary/10 p-3 rounded-xl">
                   <svg
-                    className="w-6 h-6 text-indigo-600"
+                    className="w-6 h-6 text-primary"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -86,12 +86,12 @@ const Dashboard = () => {
 
             <Link
               to="/slots"
-              className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border border-gray-200"
+              className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-gray-200 hover:border-primary/20 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
             >
               <div className="flex items-center space-x-4">
-                <div className="bg-green-100 p-3 rounded-lg">
+                <div className="bg-primary/10 p-3 rounded-xl">
                   <svg
-                    className="w-6 h-6 text-green-600"
+                    className="w-6 h-6 text-primary"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -113,12 +113,12 @@ const Dashboard = () => {
 
             <Link
               to="/resources"
-              className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border border-gray-200"
+              className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-gray-200 hover:border-primary/20 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
             >
               <div className="flex items-center space-x-4">
-                <div className="bg-blue-100 p-3 rounded-lg">
+                <div className="bg-primary/10 p-3 rounded-xl">
                   <svg
-                    className="w-6 h-6 text-blue-600"
+                    className="w-6 h-6 text-primary"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -140,12 +140,12 @@ const Dashboard = () => {
 
             <Link
               to="/resources/summarize"
-              className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border border-gray-200"
+              className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-gray-200 hover:border-primary/20 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
             >
               <div className="flex items-center space-x-4">
-                <div className="bg-purple-100 p-3 rounded-lg">
+                <div className="bg-primary/10 p-3 rounded-xl">
                   <svg
-                    className="w-6 h-6 text-purple-600"
+                    className="w-6 h-6 text-primary"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -164,6 +164,33 @@ const Dashboard = () => {
                 </div>
               </div>
             </Link>
+
+            <Link
+              to="/chatbot"
+              className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-gray-200 hover:border-primary/20 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+            >
+              <div className="flex items-center space-x-4">
+                <div className="bg-primary/10 p-3 rounded-xl">
+                  <svg
+                    className="w-6 h-6 text-primary"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900">Chat with Benny</h3>
+                  <p className="text-sm text-gray-500">Ask questions about Bennett University</p>
+                </div>
+              </div>
+            </Link>
           </>
         )}
 
@@ -171,12 +198,12 @@ const Dashboard = () => {
           <>
             <Link
               to="/notices"
-              className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border border-gray-200"
+              className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-gray-200 hover:border-primary/20 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
             >
               <div className="flex items-center space-x-4">
-                <div className="bg-indigo-100 p-3 rounded-lg">
+                <div className="bg-primary/10 p-3 rounded-xl">
                   <svg
-                    className="w-6 h-6 text-indigo-600"
+                    className="w-6 h-6 text-primary"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -198,12 +225,12 @@ const Dashboard = () => {
 
             <Link
               to="/slots/manage"
-              className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border border-gray-200"
+              className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-gray-200 hover:border-primary/20 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
             >
               <div className="flex items-center space-x-4">
-                <div className="bg-green-100 p-3 rounded-lg">
+                <div className="bg-primary/10 p-3 rounded-xl">
                   <svg
-                    className="w-6 h-6 text-green-600"
+                    className="w-6 h-6 text-primary"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -225,12 +252,12 @@ const Dashboard = () => {
 
             <Link
               to="/resources/upload"
-              className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border border-gray-200"
+              className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-gray-200 hover:border-primary/20 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
             >
               <div className="flex items-center space-x-4">
-                <div className="bg-blue-100 p-3 rounded-lg">
+                <div className="bg-primary/10 p-3 rounded-xl">
                   <svg
-                    className="w-6 h-6 text-blue-600"
+                    className="w-6 h-6 text-primary"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -252,12 +279,12 @@ const Dashboard = () => {
 
             <Link
               to="/profile"
-              className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border border-gray-200"
+              className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-gray-200 hover:border-primary/20 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
             >
               <div className="flex items-center space-x-4">
-                <div className="bg-purple-100 p-3 rounded-lg">
+                <div className="bg-primary/10 p-3 rounded-xl">
                   <svg
-                    className="w-6 h-6 text-purple-600"
+                    className="w-6 h-6 text-primary"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -276,11 +303,38 @@ const Dashboard = () => {
                 </div>
               </div>
             </Link>
+
+            <Link
+              to="/chatbot"
+              className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-gray-200 hover:border-primary/20 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+            >
+              <div className="flex items-center space-x-4">
+                <div className="bg-primary/10 p-3 rounded-xl">
+                  <svg
+                    className="w-6 h-6 text-primary"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900">Chat with Benny</h3>
+                  <p className="text-sm text-gray-500">Ask questions about Bennett University</p>
+                </div>
+              </div>
+            </Link>
           </>
         )}
       </div>
 
-      <div className="mt-8 bg-white p-6 rounded-lg shadow-md border border-gray-200">
+      <div className="mt-8 bg-white p-6 rounded-xl shadow-sm border border-gray-200">
         <h2 className="text-xl font-semibold text-gray-900 mb-4">Account Information</h2>
         <div className="space-y-2">
           <div className="flex justify-between">

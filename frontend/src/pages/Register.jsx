@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { authAPI } from '../api/auth';
+import { motion } from 'framer-motion';
+import { WavyBackground } from '../components/ui/wavy-background';
 
 const Register = () => {
   const [userType, setUserType] = useState('student');
@@ -55,77 +57,115 @@ const Register = () => {
 
   if (success) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 to-purple-50">
-        <div className="max-w-md w-full bg-white p-8 rounded-lg shadow-lg text-center">
-          <div className="text-green-500 text-5xl mb-4">✓</div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">Registration Successful!</h2>
-          <p className="text-gray-600">Redirecting to login...</p>
-        </div>
-      </div>
+      <WavyBackground
+        className="min-h-screen flex items-center justify-center w-full"
+        containerClassName="min-h-screen w-full"
+        colors={['#5142FF', '#818cf8', '#c084fc', '#e879f9', '#22d3ee']}
+        waveWidth={70}
+        backgroundFill="transparent"
+        blur={12}
+        speed="fast"
+        waveOpacity={0.35}
+      >
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="max-w-md w-full bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-8 rounded-xl shadow-2xl text-center"
+        >
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ delay: 0.2, type: 'spring' }}
+            className="text-green-500 text-5xl mb-4"
+          >
+            ✓
+          </motion.div>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Registration Successful!</h2>
+          <p className="text-gray-600 dark:text-gray-300">Redirecting to login...</p>
+        </motion.div>
+      </WavyBackground>
     );
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 to-purple-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8 bg-white p-8 rounded-lg shadow-lg">
+    <WavyBackground
+      className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 w-full"
+      containerClassName="min-h-screen w-full"
+      colors={['#5142FF', '#818cf8', '#c084fc', '#e879f9', '#22d3ee']}
+      waveWidth={70}
+      backgroundFill="transparent"
+      blur={12}
+      speed="fast"
+      waveOpacity={0.35}
+    >
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="max-w-md w-full space-y-8 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-8 rounded-xl shadow-2xl border border-gray-200 dark:border-gray-700"
+      >
         <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-            Create your account
+          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900 dark:text-white">
+            Create your account on <span className="text-primary">Benny</span>
           </h2>
-          <p className="mt-2 text-center text-sm text-gray-600">
-            Join Benny - Student Helper & Management App
+          <p className="mt-2 text-center text-sm text-gray-600 dark:text-gray-300">
+            Create your Bennett University account
+          </p>
+          <p className="mt-1 text-center text-xs text-gray-500 dark:text-gray-400">
+            Student Helper & Management App
           </p>
         </div>
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           {error && (
-            <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
+            <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-300 px-4 py-3 rounded-xl">
               {error}
             </div>
           )}
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
               I am a:
             </label>
-            <div className="grid grid-cols-3 gap-3">
-              <button
+            <div className="grid grid-cols-2 gap-3">
+              <motion.button
                 type="button"
                 onClick={() => setUserType('student')}
-                className={`py-2 px-4 rounded-md text-sm font-medium ${
+                className={`py-3 px-4 rounded-xl text-sm font-semibold transition-all duration-300 ${
                   userType === 'student'
-                    ? 'bg-indigo-600 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    ? 'bg-primary dark:bg-primary text-white shadow-lg'
+                    : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
                 }`}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                animate={{
+                  scale: userType === 'student' ? 1.02 : 1,
+                }}
+                transition={{ duration: 0.2 }}
               >
                 Student
-              </button>
-              <button
+              </motion.button>
+              <motion.button
                 type="button"
                 onClick={() => setUserType('faculty')}
-                className={`py-2 px-4 rounded-md text-sm font-medium ${
+                className={`py-3 px-4 rounded-xl text-sm font-semibold transition-all duration-300 ${
                   userType === 'faculty'
-                    ? 'bg-indigo-600 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    ? 'bg-primary dark:bg-primary text-white shadow-lg'
+                    : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
                 }`}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                animate={{
+                  scale: userType === 'faculty' ? 1.02 : 1,
+                }}
+                transition={{ duration: 0.2 }}
               >
                 Faculty
-              </button>
-              <button
-                type="button"
-                onClick={() => setUserType('alumni')}
-                className={`py-2 px-4 rounded-md text-sm font-medium ${
-                  userType === 'alumni'
-                    ? 'bg-indigo-600 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-              >
-                Alumni
-              </button>
+              </motion.button>
             </div>
           </div>
 
           <div>
-            <label htmlFor="full_name" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="full_name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Full Name
             </label>
             <input
@@ -133,7 +173,7 @@ const Register = () => {
               name="full_name"
               type="text"
               required
-              className="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="mt-1 appearance-none relative block w-full px-4 py-3 border border-gray-300 dark:border-gray-600 placeholder-gray-500 dark:placeholder-gray-400 text-gray-900 dark:text-white bg-white dark:bg-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent sm:text-sm transition-all duration-300"
               placeholder="Enter your full name"
               value={formData.full_name}
               onChange={handleChange}
@@ -141,7 +181,7 @@ const Register = () => {
           </div>
 
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Email address
             </label>
             <input
@@ -150,7 +190,7 @@ const Register = () => {
               type="email"
               autoComplete="email"
               required
-              className="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="mt-1 appearance-none relative block w-full px-4 py-3 border border-gray-300 dark:border-gray-600 placeholder-gray-500 dark:placeholder-gray-400 text-gray-900 dark:text-white bg-white dark:bg-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent sm:text-sm transition-all duration-300"
               placeholder="Enter your email"
               value={formData.email}
               onChange={handleChange}
@@ -158,7 +198,7 @@ const Register = () => {
           </div>
 
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Password
             </label>
             <input
@@ -167,7 +207,7 @@ const Register = () => {
               type="password"
               autoComplete="new-password"
               required
-              className="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="mt-1 appearance-none relative block w-full px-4 py-3 border border-gray-300 dark:border-gray-600 placeholder-gray-500 dark:placeholder-gray-400 text-gray-900 dark:text-white bg-white dark:bg-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent sm:text-sm transition-all duration-300"
               placeholder="Enter your password"
               value={formData.password}
               onChange={handleChange}
@@ -175,26 +215,27 @@ const Register = () => {
           </div>
 
           <div>
-            <button
+            <motion.button
               type="submit"
               disabled={loading}
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50"
+              className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-semibold rounded-xl text-white bg-primary dark:bg-primary hover:bg-indigo-700 dark:hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary disabled:opacity-50 shadow-lg hover:shadow-xl transition-all duration-300"
+              whileHover={{ scale: loading ? 1 : 1.02 }}
+              whileTap={{ scale: loading ? 1 : 0.98 }}
             >
               {loading ? 'Creating account...' : 'Create account'}
-            </button>
+            </motion.button>
           </div>
 
           <div className="text-center">
-            <span className="text-sm text-gray-600">Already have an account? </span>
-            <Link to="/login" className="font-medium text-indigo-600 hover:text-indigo-500">
+            <span className="text-sm text-gray-600 dark:text-gray-300">Already have an account? </span>
+            <Link to="/login" className="font-medium text-primary dark:text-primary hover:text-indigo-700 dark:hover:text-primary-dark transition-colors duration-300">
               Sign in
             </Link>
           </div>
         </form>
-      </div>
-    </div>
+      </motion.div>
+    </WavyBackground>
   );
 };
 
 export default Register;
-

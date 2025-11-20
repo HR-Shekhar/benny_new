@@ -15,6 +15,13 @@ import VerifyEmail from './pages/VerifyEmail';
 import Resources from './pages/Resources';
 import UploadResource from './pages/UploadResource';
 import SummarizeFile from './pages/SummarizeFile';
+import Chatbot from './pages/Chatbot';
+import Assignments from './pages/Assignments';
+import CreateAssignment from './pages/CreateAssignment';
+import AssignmentDetail from './pages/AssignmentDetail';
+import AssignmentSubmissions from './pages/AssignmentSubmissions';
+import ViewSubmission from './pages/ViewSubmission';
+import MySubmission from './pages/MySubmission';
 
 function App() {
   return (
@@ -87,6 +94,62 @@ function App() {
               element={
                 <ProtectedRoute requiredRole="student">
                   <SummarizeFile />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/chatbot"
+              element={
+                <ProtectedRoute>
+                  <Chatbot />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/assignments"
+              element={
+                <ProtectedRoute>
+                  <Assignments />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/assignments/create"
+              element={
+                <ProtectedRoute requiredRole="faculty">
+                  <CreateAssignment />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/assignments/:assignmentId"
+              element={
+                <ProtectedRoute>
+                  <AssignmentDetail />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/assignments/:assignmentId/submissions"
+              element={
+                <ProtectedRoute requiredRole="faculty">
+                  <AssignmentSubmissions />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/assignments/:assignmentId/submissions/:submissionId"
+              element={
+                <ProtectedRoute>
+                  <ViewSubmission />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/assignments/:assignmentId/my-submission/:submissionId"
+              element={
+                <ProtectedRoute requiredRole="student">
+                  <MySubmission />
                 </ProtectedRoute>
               }
             />

@@ -1,9 +1,12 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from app.routers import auth as auth_router
 from app.routers import faculty_profile as faculty_router
 from app.routers import slots as slots_router
 from app.routers import resources as resources_router
+from app.routers import chatbot as chatbot_router
+from app.routers import assignments as assignments_router
 from app.db import init_indexes
 from app.routers import notices
 
@@ -39,6 +42,12 @@ app.include_router(faculty_router.router, prefix=API_PREFIX)
 app.include_router(notices.router, prefix=API_PREFIX)
 app.include_router(slots_router.router, prefix=API_PREFIX)
 app.include_router(resources_router.router, prefix=API_PREFIX)
+app.include_router(chatbot_router.router, prefix=API_PREFIX)
+app.include_router(assignments_router.router, prefix=API_PREFIX)
+
+# Mount static file serving for assignment and submission files
+# Note: In production, consider using a proper file server (S3, etc.)
+app.mount("/storage", StaticFiles(directory="storage"), name="storage")
 
 
 @app.get("/")

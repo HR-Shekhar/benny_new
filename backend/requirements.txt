@@ -21,4 +21,8 @@ python-pptx
 faiss-cpu
 # Embeddings backend
 sentence-transformers
+huggingface-hub
+transformers
+torch
+numpy
 tf-keras
