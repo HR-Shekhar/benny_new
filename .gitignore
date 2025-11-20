@@ -1,1 +1,35 @@
+# Environment variables
+.env
+.env.local
+.env.*.local
+**/.env
+backend/.env
+chabot_2/.env
+
+# Node modules
 frontend/node_modules
+node_modules/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.pyc
+
+# Storage and data files
+backend/storage/
+backend/vector_db/
+backend/uploads/
+storage/
+*.json
+!package.json
+!package-lock.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
