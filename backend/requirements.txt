@@ -1,0 +1,24 @@
+fastapi
+uvicorn[standard]
+python-jose[cryptography]
+passlib[bcrypt]
+motor
+pydantic[email]
+python-dotenv
+python-dotenv
+# LangChain core
+langchain
+langchain-community
+langchain-core
+langchain-huggingface
+langchain-text-splitters
+langchain-groq
+# Document loaders
+pypdf
+unstructured
+python-pptx
+# Vector database
+faiss-cpu
+# Embeddings backend
+sentence-transformers
+tf-keras
